@@ -1,4 +1,4 @@
-function cmToZoll() {
+function calc_ppi() {
 	var originalCmWidth = document.getElementById("original-cm-width").value;
 	var originalCmHeight = document.getElementById("original-cm-height").value;
 

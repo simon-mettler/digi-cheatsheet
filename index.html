@@ -8,16 +8,18 @@
   </head>
 
   <body>
-
+		<div class="container">
 		<h2>Zielsetzung: PPI/DPI-Angabe</h2>
 		<table>
-			<tr>
-				<td class="th" colspan="4">Quelle</td>
+			<tr class="th">
+				<td>Quelle</td>
+				<td>Breite</td>
+				<td colspan="2">Höhe</td>
 			</tr>
 			<tr>
 				<td>Originalgrösse (cm)</td>
-				<td><input type="text" id="original-cm-width" value="0" onkeyup="cmToZoll()" /></td>
-				<td><input type="text" id="original-cm-height" value="0" onkeyup="cmToZoll()" />
+				<td class="input"><input type="text" id="original-cm-width" value="0" onkeyup="calc_ppi()" /></td>
+				<td class="input"><input type="text" id="original-cm-height" value="0" onkeyup="calc_ppi()" />
 				<td id="original-output-cm2">0 cm<sup>2</sup></td>
 			</tr>
 			<tr>
@@ -29,28 +31,37 @@
 			<tr>
 				<td class="space"></td>
 			</tr>
-			<tr>
-				<td class="th" colspan="4">Ziel</td>
+			<tr class="th">
+				<td>Ziel</td>
+				<td>Breite</td>
+				<td colspan="2">Höhe</td>
 			</tr>
 			<tr>
 				<td>Abbildungsgrösse (cm)</td>
-				<td><input type="text" id="digi-cm-width" value="0" onkeyup="cmToZoll()" /></td>
+				<td class="input"><input type="text" id="digi-cm-width" value="0" onkeyup="calc_ppi()" /></td>
 				<td id="digi-cm-height">0</td>
 				<td id="digi-output-cm2">0 cm<sup>2</sup></td>
 			</tr>
 			<tr>
 				<td>Bildpunktdichte (dpi)</td>
-				<td><input id="digi-dpi" value="300" onkeyup="cmToZoll()"></input></td>
+				<td class="input"><input id="digi-dpi" value="300" onkeyup="calc_ppi()"></input></td>
 			</tr>
 			<tr>
 				<td>Farbtiefe (bit)</td>
-				<td><input id="digi-farb" value="48" onkeyup="cmToZoll()"></input></td>
+				<td class="input"><input id="digi-farb" value="48" onkeyup="calc_ppi()"></input></td>
 			</tr>
 			<tr>
 				<td class="space"></td>
 			</tr>
+			<tr class="th">
+				<td>Ergebnisse</td>
+				<td>Breite</td>
+				<td colspan="2">Höhe</td>
+			</tr>
 			<tr>
-				<td class="th" colspan="4">Ergebnisse</td>
+				<td>Absolute Grösse (px)</td>
+				<td id="erg-absolut-width">0</td>
+				<td id="erg-absolut-height">0</td>
 			</tr>
 			<tr>
 				<td>Skalierungsfaktor</td>
@@ -65,11 +76,6 @@
 				<td id="erg-abtast"></td>
 			</tr>
 			<tr>
-				<td>Absolute Grösse (px)</td>
-				<td id="erg-absolut-width">0</td>
-				<td id="erg-absolut-height">0</td>
-			</tr>
-			<tr>
 				<td>Megapixel</td>
 				<td id="erg-megapixel">0 MP</td>
 			</tr>
@@ -78,6 +84,6 @@
 				<td id="erg-datenmenge">0 MB</td>
 			</tr>
 		</table>
-
+		</div>
   </body>
 </html>

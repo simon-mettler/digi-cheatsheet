@@ -1,0 +1,57 @@
+:root {
+  --blue: #0b8da8;
+	--bg-light: #78939921;
+}
+
+body {
+	font-family: sans-serif;
+	// background: #0000000a;
+}
+
+.container {
+	margin: 0 auto;
+	width: max-content;
+}
+
+h2 {
+	color: var(--blue);
+}
+
+table {
+	border: 2px solid var(--blue);
+	border-spacing: 0;
+	padding: 50px;
+	background: white;
+}
+
+.th td {
+	font-weight: bold;
+	color: var(--blue);
+	border-bottom: 2px solid var(--blue);
+}
+
+tr {
+	height: 29px;
+}
+
+td {
+	min-width: 80px;
+	padding: 2px 12px 2px 5px;
+}
+
+.space {
+	height: 20px;
+}
+
+input {
+	border: none;
+	font-size: 1em;
+	width: 80px;
+	background: none;
+}
+
+.input {
+	background: var(--bg-light);
+	border-bottom: 2px solid white;
+	border-right: 2px solid white;
+}
