@@ -15,7 +15,7 @@
 			<h2>Ausgangslage: Pixel</h2>
 			<table>
 				<tr class="th">
-					<td>Quelle</td>
+					<td>Ausgangslage</td>
 					<td>Breite</td>
 					<td colspan="2">Höhe</td>
 				</tr>
@@ -29,12 +29,54 @@
 					<td class="input"><input type="text" id="dg1_farbtiefe" value="24" onkeyup="calc_dg1()" /></td>
 				</tr>
 				<tr>
+					<td class="space"></td>
+				</tr>
+				<tr class="th">
+					<td colspan="3">Ergebnisse</td>
+				</tr>
+				<tr>
 					<td>Megapixel</td>
 					<td id="dg1_mp">0 MP</td>
 				</tr>
 				<tr>
 					<td>Datenmenge</td>
 					<td id="dg1_mb">0 MB</td>
+				</tr>
+			</table>
+
+			<h2>Ausgangslage: Zentimeter</h2>
+			<table>
+				<tr class="th">
+					<td>Ausgangslage</td>
+					<td>Breite</td>
+					<td colspan="2">Höhe</td>
+				</tr>
+				<tr>
+					<td>Grösse (cm)</td>
+					<td class="input"><input type="text" id="dg2_width" value="0" onkeyup="calc_dg2()" /></td>
+					<td class="input"><input type="text" id="dg2_height" value="0" onkeyup="calc_dg2()" />
+				</tr>
+				<tr>
+					<td>Bildpunktdichte (ppi)</td>
+					<td class="input"><input type="text" id="dg2_ppi" value="300" onkeyup="calc_dg2()" /></td>
+				</tr>
+				<tr>
+					<td>Farbtiefe (bit)</td>
+					<td class="input"><input type="text" id="dg2_farbtiefe" value="24" onkeyup="calc_dg2()" /></td>
+				</tr>
+				<tr>
+					<td class="space"></td>
+				</tr>
+				<tr class="th">
+					<td colspan="3">Ergebnisse</td>
+				</tr>
+				<tr>
+					<td>Megapixel</td>
+					<td id="dg2_mp">0 MP</td>
+				</tr>
+				<tr>
+					<td>Datenmenge</td>
+					<td id="dg2_mb">0 MB</td>
 				</tr>
 			</table>
 

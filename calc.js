@@ -52,6 +52,17 @@ function calc_dg1() {
 	document.getElementById("dg1_mb").innerHTML = roundTo(datenmenge, 2) + " MB";
 }
 
+function calc_dg2() {
+	var ppi = document.getElementById("dg2_ppi").value;
+	var width = toInch(document.getElementById("dg2_width").value) * ppi;
+	var height = toInch(document.getElementById("dg2_height").value) * ppi;
+	var farbtiefe = document.getElementById("dg2_farbtiefe").value;
+	var megapixel = flaeche(width, height) / 1000000;
+	var datenmenge = flaeche(width, height) * farbtiefe / 8 / 1024 / 1024;
+	document.getElementById("dg2_mp").innerHTML = roundTo(megapixel, 2) + " MP";
+	document.getElementById("dg2_mb").innerHTML = roundTo(datenmenge, 2) + " MB";
+}
+
 function roundTo(n, digits) {
 	if (digits === undefined) {	digits = 0;	}
 	var multiplicator = Math.pow(10, digits);
