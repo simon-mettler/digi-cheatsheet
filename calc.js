@@ -42,6 +42,16 @@ function calc_ppi() {
 	document.getElementById("digi-cm-height").innerHTML = roundTo(digiCmHeight, 2);
 }
 
+function calc_dg1() {
+	var width = document.getElementById("dg1_width").value;
+	var height = document.getElementById("dg1_height").value;
+	var farbtiefe = document.getElementById("dg1_farbtiefe").value;
+	var megapixel = flaeche(width, height) / 1000000;
+	var datenmenge = flaeche(width, height) * farbtiefe / 8 / 1024 / 1024;
+	document.getElementById("dg1_mp").innerHTML = roundTo(megapixel, 2) + " MP";
+	document.getElementById("dg1_mb").innerHTML = roundTo(datenmenge, 2) + " MB";
+}
+
 function roundTo(n, digits) {
 	if (digits === undefined) {	digits = 0;	}
 	var multiplicator = Math.pow(10, digits);
@@ -56,4 +66,5 @@ function toInch(cm) {
 function flaeche(x, y) {
 	return x * y;
 }
+
 

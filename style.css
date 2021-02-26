@@ -13,8 +13,9 @@ body {
 	width: max-content;
 }
 
-h2 {
+h1, h2 {
 	color: var(--blue);
+	margin-top: 80px;
 }
 
 table {
