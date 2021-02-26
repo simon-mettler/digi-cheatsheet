@@ -1,71 +1,81 @@
 function calc_ppi() {
-	var originalCmWidth = document.getElementById("original-cm-width").value;
-	var originalCmHeight = document.getElementById("original-cm-height").value;
 
-	var originalZollWidth = toInch(originalCmWidth);
-	var originalZollHeight= toInch(originalCmHeight);
+	let width = get("ppi_width");
+	let height = get("ppi_height");
 
-	var originalOutputCm2 = flaeche(originalCmWidth, originalCmHeight);
-	var originalOutputZoll2 = flaeche(originalZollWidth,originalZollHeight);
+	let widthZoll = toInch(width);
+	let heightZoll= toInch(height);
 
-	var digiCmWidth = document.getElementById("digi-cm-width").value;
+	let cm2 = flaeche(width, height);
+	let zoll2 = flaeche(widthZoll,heightZoll);
 
-	var digiDpi = document.getElementById("digi-dpi").value;
-	var digiFarb = document.getElementById("digi-farb").value;
+	let zielWidth = get("ppi_ziel-width");
 
-	var ergScale = digiCmWidth / originalCmWidth;  
-	var ergAbsolutWidth = toInch(digiCmWidth * digiDpi); 
+	let zielDpi = get("ppi_ziel-dpi");
+	let zielFarb = get("ppi_ziel-farb");
 
-	var digiCmHeight = originalCmHeight * ergScale;
-	var digiOutputCm2 = digiCmWidth * digiCmHeight;
-	var ergAbsolutHeight = toInch(digiCmHeight * digiDpi); 
+	let scale = zielWidth / width;  
+	let ergWidth = toInch(zielWidth * zielDpi); 
 
-	var ergMegapixel = ergAbsolutWidth * ergAbsolutHeight / 1024 / 1024;
-	var ergDatenmenge = ergMegapixel * digiFarb / 8;
-	var ergAbtastrate = ergAbsolutWidth / originalZollWidth;
-	var ergAufl = digiDpi * 2.54;
+	let zielHeight = height * scale;
+	let zielCm2 = zielWidth * zielHeight;
+	let ergHeight = toInch(zielHeight * zielDpi); 
 
-	document.getElementById("original-output-cm2").innerHTML = roundTo(originalOutputCm2, 2) + " cm<sup>2</sup>";
-	document.getElementById("original-output-zoll2").innerHTML = roundTo(originalOutputZoll2, 2) + " zoll<sup>2</sup>";
-	document.getElementById("digi-output-cm2").innerHTML = roundTo(digiOutputCm2, 2) + " cm<sup>2</sup>";
-	document.getElementById("original-zoll-width").innerHTML = roundTo(originalZollWidth, 2);
-	document.getElementById("original-zoll-height").innerHTML = roundTo(originalZollHeight, 2);
+	let ergMegapixel = ergWidth * ergHeight / 1024 / 1024;
+	let ergDatenmenge = ergMegapixel * zielFarb / 8;
+	let ergAbtastrate = ergWidth / widthZoll;
+	let ergAufl = zielDpi * 2.54;
 
-	document.getElementById("erg-scale").innerHTML = roundTo(ergScale, 2);
-	document.getElementById("erg-absolut-width").innerHTML = roundTo(ergAbsolutWidth, 0);
-	document.getElementById("erg-absolut-height").innerHTML = roundTo(ergAbsolutHeight, 0);
-	document.getElementById("erg-abtastrate").innerHTML = roundTo(ergAbtastrate, 0) + " ppi";
-	document.getElementById("erg-aufl").innerHTML = roundTo(ergAufl, 2) + " lpi";
-	document.getElementById("erg-megapixel").innerHTML = roundTo(ergMegapixel, 2) + " MP";
-	document.getElementById("erg-datenmenge").innerHTML = roundTo(ergDatenmenge, 2) + " MB";
+	set("ppi_cm2", roundTo(cm2, 2) + " cm<sup>2</sup>");
+	set("ppi_zoll2", roundTo(zoll2, 2) + " zoll<sup>2</sup>");
+	set("ppi_ziel-cm2", roundTo(zielCm2, 2) + " cm<sup>2</sup>");
+	set("ppi_width-zoll", roundTo(widthZoll, 2));
+	set("ppi_height-zoll", roundTo(heightZoll, 2));
 
-	document.getElementById("digi-cm-height").innerHTML = roundTo(digiCmHeight, 2);
+	set("ppi_scale", roundTo(scale, 2));
+	set("ppi_erg-width", roundTo(ergWidth, 0));
+	set("ppi_erg-height", roundTo(ergHeight, 0));
+	set("ppi_abtastrate", roundTo(ergAbtastrate, 0) + " ppi");
+	set("ppi_aufl", roundTo(ergAufl, 2) + " lpi");
+	set("ppi_megapixel", roundTo(ergMegapixel, 2) + " MP");
+	set("ppi_datenmenge", roundTo(ergDatenmenge, 2) + " MB");
+	set("ppi_ziel-height", roundTo(zielHeight, 2));
+
 }
 
 function calc_dg1() {
-	var width = document.getElementById("dg1_width").value;
-	var height = document.getElementById("dg1_height").value;
-	var farbtiefe = document.getElementById("dg1_farbtiefe").value;
-	var megapixel = flaeche(width, height) / 1000000;
-	var datenmenge = flaeche(width, height) * farbtiefe / 8 / 1024 / 1024;
-	document.getElementById("dg1_mp").innerHTML = roundTo(megapixel, 2) + " MP";
-	document.getElementById("dg1_mb").innerHTML = roundTo(datenmenge, 2) + " MB";
+
+	let width = get("dg1_width");
+	let height = get("dg1_height");
+	let farbtiefe = get("dg1_farbtiefe");
+
+	let megapixel = flaeche(width, height) / 1000000;
+	let datenmenge = flaeche(width, height) * farbtiefe / 8 / 1024 / 1024;
+
+	set("dg1_mp", roundTo(megapixel, 2) + " MP");
+	set("dg1_mb", roundTo(datenmenge, 2) + " MB");
+
 }
 
 function calc_dg2() {
-	var ppi = document.getElementById("dg2_ppi").value;
-	var width = toInch(document.getElementById("dg2_width").value) * ppi;
-	var height = toInch(document.getElementById("dg2_height").value) * ppi;
-	var farbtiefe = document.getElementById("dg2_farbtiefe").value;
-	var megapixel = flaeche(width, height) / 1000000;
-	var datenmenge = flaeche(width, height) * farbtiefe / 8 / 1024 / 1024;
-	document.getElementById("dg2_mp").innerHTML = roundTo(megapixel, 2) + " MP";
-	document.getElementById("dg2_mb").innerHTML = roundTo(datenmenge, 2) + " MB";
+
+	let ppi = get("dg2_ppi");
+	let farbtiefe = get("dg2_farbtiefe");
+
+	let width = toInch(get("dg2_width")) * ppi;
+	let height = toInch(get("dg2_height")) * ppi;
+
+	let megapixel = flaeche(width, height) / 1000000;
+	let datenmenge = flaeche(width, height) * farbtiefe / 8 / 1024 / 1024;
+
+	set("dg2_mp", roundTo(megapixel, 2) + " MP");
+	set("dg2_mb", roundTo(datenmenge, 2) + " MB");
+
 }
 
 function roundTo(n, digits) {
 	if (digits === undefined) {	digits = 0;	}
-	var multiplicator = Math.pow(10, digits);
+	let multiplicator = Math.pow(10, digits);
 	n = parseFloat((n * multiplicator).toFixed(11));
 	return Math.round(n) / multiplicator;
 }
@@ -78,4 +88,10 @@ function flaeche(x, y) {
 	return x * y;
 }
 
+function get(id) {
+	return document.getElementById(id).value;
+}
 
+function set(id, data) {
+	document.getElementById(id).innerHTML = data;
+}
