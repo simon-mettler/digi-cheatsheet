@@ -1,3 +1,38 @@
+function calc_disp() {
+
+	let width = get("disp_width");
+	let height = get("disp_height");
+
+	let widthZoll = toInch(width);
+	let heightZoll= toInch(height);
+
+	let cm2 = flaeche(width, height);
+	let zoll2 = flaeche(widthZoll,heightZoll);
+
+	let zielWidth = get("disp_ziel-width");
+
+	let zielFarb = get("disp_ziel-farb");
+
+	let scale = zielWidth / width;  
+
+	let zielHeight = height * scale;
+
+	let ergMegapixel = zielWidth * zielHeight / 1024 / 1024;
+	let ergDatenmenge = ergMegapixel * zielFarb / 8;
+	let ergAbtastrate = zielWidth / widthZoll;
+
+	set("disp_cm2", roundTo(cm2, 2) + " cm<sup>2</sup>");
+	set("disp_zoll2", roundTo(zoll2, 2) + " zoll<sup>2</sup>");
+	set("disp_width-zoll", roundTo(widthZoll, 2));
+	set("disp_height-zoll", roundTo(heightZoll, 2));
+
+	set("disp_abtastrate", roundTo(ergAbtastrate, 0) + " ppi");
+	set("disp_megapixel", roundTo(ergMegapixel, 2) + " MP");
+	set("disp_datenmenge", roundTo(ergDatenmenge, 2) + " MB");
+	set("disp_ziel-height", roundTo(zielHeight, 0));
+
+}
+
 function calc_ppi() {
 
 	let width = get("ppi_width");
