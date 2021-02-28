@@ -124,6 +124,41 @@ function calc_ppi() {
 
 }
 
+function calc_dia() {
+
+	let width = get("dia_width");
+	let height = get("dia_height");
+
+	let widthZoll = toInch(width);
+	let heightZoll= toInch(height);
+
+	let aufl = get("dia_aufl");
+
+	let cm2 = flaeche(width, height);
+	let zoll2 = flaeche(widthZoll,heightZoll);
+
+	let zielFarb = get("dia_ziel-farb");
+
+	let ergWidth = width * aufl * 10; 
+	let ergHeight = height * aufl * 10;
+
+	let ergMegapixel = ergWidth * ergHeight / 1024 / 1024;
+	let ergDatenmenge = ergMegapixel * zielFarb / 8;
+	let ergAbtastrate = ergWidth / widthZoll;
+
+	set("dia_cm2", roundTo(cm2, 2) + " cm<sup>2</sup>");
+	set("dia_zoll2", roundTo(zoll2, 2) + " zoll<sup>2</sup>");
+	set("dia_width-zoll", roundTo(widthZoll, 2));
+	set("dia_height-zoll", roundTo(heightZoll, 2));
+
+	set("dia_erg-width", roundTo(ergWidth, 0));
+	set("dia_erg-height", roundTo(ergHeight, 0));
+	set("dia_abtastrate", roundTo(ergAbtastrate, 0) + " ppi");
+	set("dia_megapixel", roundTo(ergMegapixel, 2) + " MP");
+	set("dia_datenmenge", roundTo(ergDatenmenge, 2) + " MB");
+
+}
+
 function calc_dg1() {
 
 	let width = get("dg1_width");
