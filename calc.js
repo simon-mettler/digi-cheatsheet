@@ -159,6 +159,41 @@ function calc_dia() {
 
 }
 
+function calc_dfg() {
+
+	let width = get("dfg_width");
+	let height = get("dfg_height");
+
+	let widthZoll = toInch(width);
+	let heightZoll= toInch(height);
+
+	let aufl = get("dfg_aufl");
+
+	let cm2 = flaeche(width, height);
+	let zoll2 = flaeche(widthZoll,heightZoll);
+
+	let zielFarb = get("dfg_ziel-farb");
+
+	let ergWidth = width * aufl * 10 * 2; 
+	let ergHeight = height * aufl * 10 * 2;
+
+	let ergMegapixel = ergWidth * ergHeight / 1024 / 1024;
+	let ergDatenmenge = ergMegapixel * zielFarb / 8;
+	let ergAbtastrate = ergWidth / widthZoll;
+
+	set("dfg_cm2", roundTo(cm2, 2) + " cm<sup>2</sup>");
+	set("dfg_zoll2", roundTo(zoll2, 2) + " zoll<sup>2</sup>");
+	set("dfg_width-zoll", roundTo(widthZoll, 2));
+	set("dfg_height-zoll", roundTo(heightZoll, 2));
+
+	set("dfg_erg-width", roundTo(ergWidth, 0));
+	set("dfg_erg-height", roundTo(ergHeight, 0));
+	set("dfg_abtastrate", roundTo(ergAbtastrate, 0) + " ppi");
+	set("dfg_megapixel", roundTo(ergMegapixel, 2) + " MP");
+	set("dfg_datenmenge", roundTo(ergDatenmenge, 2) + " MB");
+
+}
+
 function calc_dg1() {
 
 	let width = get("dg1_width");

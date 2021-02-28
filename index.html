@@ -364,6 +364,68 @@
 				</tr>
 			</table>
 
+			<h2>Standardisierte Abtastrate (DFG-Praxisregeln)</h2>
+			<table>
+				<tr class="th">
+					<td>Quelle</td>
+					<td>Breite</td>
+					<td colspan="2">Höhe</td>
+				</tr>
+				<tr>
+					<td>Originalgrösse (cm)</td>
+					<td class="input"><input type="text" id="dfg_width" value="0" onkeyup="calc_dfg()" /></td>
+					<td class="input"><input type="text" id="dfg_height" value="0" onkeyup="calc_dfg()" />
+					<td id="dfg_cm2">0 cm<sup>2</sup></td>
+				</tr>
+				<tr>
+					<td>Originalgrösse (Zoll)</td>
+					<td id="dfg_width-zoll">0</td>
+					<td id="dfg_height-zoll">0</td>
+					<td id="dfg_zoll2">0 zoll<sup>2</sup></td>
+				</tr>
+				<tr>
+					<td>Filmauflösung (L/mm)</td>
+					<td class="input"><input id="dfg_aufl" value="80" onkeyup="calc_dfg()"></input></td>
+				</tr>
+				<tr>
+					<td class="space"></td>
+				</tr>
+				<tr class="th">
+					<td colspan="4">Ziel</td>
+				</tr>
+				<tr>
+					<td>Farbtiefe (bit)</td>
+					<td class="input"><input id="dfg_ziel-farb" value="48" onkeyup="calc_dfg()"></input></td>
+				</tr>
+				<tr>
+					<td class="space"></td>
+				</tr>
+				<tr class="th">
+					<td>Ergebnisse</td>
+					<td>Breite</td>
+					<td colspan="2">Höhe</td>
+				</tr>
+				<tr>
+					<td>Absolute Grösse (px)</td>
+					<td id="dfg_erg-width">0</td>
+					<td id="dfg_erg-height">0</td>
+				</tr>
+				<tr>
+					<td>Megapixel</td>
+					<td id="dfg_megapixel">0 MP</td>
+				</tr>
+				<tr>
+					<td>Datenmenge</td>
+					<td id="dfg_datenmenge">0 MB</td>
+				</tr>
+				<tr>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>Abtastrate</td>
+					<td id="dfg_abtastrate">0 ppi</td>
+				</tr>
+			</table>
 
 		</div><!-- .container -->
 
