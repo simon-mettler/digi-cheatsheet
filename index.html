@@ -137,6 +137,90 @@
 				</tr>
 			</table>
 
+			<h2>Zielsetzung: klassischer Offsetdruck</h2>
+			<table>
+				<tr class="th">
+					<td>Quelle</td>
+					<td>Breite</td>
+					<td colspan="2">Höhe</td>
+				</tr>
+				<tr>
+					<td>Originalgrösse (cm)</td>
+					<td class="input"><input type="text" id="off_width" value="0" onkeyup="calc_off()" /></td>
+					<td class="input"><input type="text" id="off_height" value="0" onkeyup="calc_off()" />
+					<td id="off_cm2">0 cm<sup>2</sup></td>
+				</tr>
+				<tr>
+					<td>Originalgrösse (Zoll)</td>
+					<td id="off_width-zoll">0</td>
+					<td id="off_height-zoll">0</td>
+					<td id="off_zoll2">0 zoll<sup>2</sup></td>
+				</tr>
+				<tr>
+					<td class="space"></td>
+				</tr>
+				<tr class="th">
+					<td>Ziel</td>
+					<td>Breite</td>
+					<td colspan="2">Höhe</td>
+				</tr>
+				<tr>
+					<td>Abbildungsgrösse (cm)</td>
+					<td class="input"><input type="text" id="off_ziel-width" value="0" onkeyup="calc_off()" /></td>
+					<td id="off_ziel-height">0</td>
+					<td id="off_ziel-cm2">0 cm<sup>2</sup></td>
+				</tr>
+				<tr>
+					<td>Farbtiefe (bit)</td>
+					<td class="input"><input id="off_ziel-farb" value="48" onkeyup="calc_off()"></input></td>
+				</tr>
+				<tr>
+					<td>Rasterweite (L/cm)</td>
+					<td class="input"><input id="off_ziel-lcm" value="60" onkeyup="calc_off()"></input></td>
+				</tr>
+				<tr>
+					<td>Qualitätsfaktor (QF)</td>
+					<td class="input"><input id="off_ziel-qf" value="2" onkeyup="calc_off()"></input></td>
+				</tr>
+				<tr>
+					<td class="space"></td>
+				</tr>
+				<tr class="th">
+					<td>Ergebnisse</td>
+					<td>Breite</td>
+					<td colspan="2">Höhe</td>
+				</tr>
+				<tr>
+					<td>Absolute Grösse (px)</td>
+					<td id="off_erg-width">0</td>
+					<td id="off_erg-height">0</td>
+				</tr>
+				<tr>
+					<td>Megapixel</td>
+					<td id="off_megapixel">0 MP</td>
+				</tr>
+				<tr>
+					<td>Datenmenge</td>
+					<td id="off_datenmenge">0 MB</td>
+				</tr>
+				<tr>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>Skalierungsfaktor</td>
+					<td id="off_scale">0</td>
+				</tr>
+				<tr>
+					<td>Ausgabeauflösung</td>
+					<td id="off_aufl">0 lpi</td>
+				</tr>
+				<tr>
+					<td>Abtastrate</td>
+					<td id="off_abtastrate">0 ppi</td>
+				</tr>
+			</table>
+
+
 			<h2>Zielsetzung: PPI/DPI-Angabe</h2>
 			<table>
 				<tr class="th">

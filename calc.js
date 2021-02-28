@@ -33,6 +33,52 @@ function calc_disp() {
 
 }
 
+function calc_off() {
+
+	let width = get("off_width");
+	let height = get("off_height");
+
+	let widthZoll = toInch(width);
+	let heightZoll= toInch(height);
+
+	let cm2 = flaeche(width, height);
+	let zoll2 = flaeche(widthZoll,heightZoll);
+
+	let zielWidth = get("off_ziel-width");
+
+	let zielLcm = get("off_ziel-lcm");
+	let zielFarb = get("off_ziel-farb");
+	let zielQf= get("off_ziel-qf");
+
+	let scale = zielWidth / width;  
+
+	let zielHeight = height * scale;
+	let zielCm2 = zielWidth * zielHeight;
+
+	let ergAufl = zielLcm * 2.54;
+	let ergAbtastrate = scale * zielQf * ergAufl;
+	let ergWidth = widthZoll * ergAbtastrate; 
+	let ergHeight = heightZoll * ergAbtastrate;
+	let ergMegapixel = ergWidth * ergHeight / 1024 / 1024;
+	let ergDatenmenge = ergMegapixel * zielFarb / 8;
+
+	set("off_cm2", roundTo(cm2, 2) + " cm<sup>2</sup>");
+	set("off_zoll2", roundTo(zoll2, 2) + " zoll<sup>2</sup>");
+	set("off_ziel-cm2", roundTo(zielCm2, 2) + " cm<sup>2</sup>");
+	set("off_width-zoll", roundTo(widthZoll, 2));
+	set("off_height-zoll", roundTo(heightZoll, 2));
+
+	set("off_scale", roundTo(scale, 2));
+	set("off_erg-width", roundTo(ergWidth, 0));
+	set("off_erg-height", roundTo(ergHeight, 0));
+	set("off_abtastrate", roundTo(ergAbtastrate, 0) + " ppi");
+	set("off_aufl", roundTo(ergAufl, 0) + " lpi");
+	set("off_megapixel", roundTo(ergMegapixel, 2) + " MP");
+	set("off_datenmenge", roundTo(ergDatenmenge, 2) + " MB");
+	set("off_ziel-height", roundTo(zielHeight, 2));
+
+}
+
 function calc_ppi() {
 
 	let width = get("ppi_width");
